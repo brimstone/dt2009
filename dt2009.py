@@ -158,9 +158,9 @@ class BlogSpider(Spider):
         if imgs[74] == u'images/SqurewithTik1.jpg':
             item['availability_of_normal_water'] = "2 or more but less than 4"
         if imgs[75] == u'images/SqurewithTik1.jpg':
-            item['availability_of_normal_water'] = "4 or more but less than 6 "
+            item['availability_of_normal_water'] = "4 or more but less than 6"
         if imgs[76] == u'images/SqurewithTik1.jpg':
-            item['availability_of_normal_water'] = "6 or more but less than 10 "
+            item['availability_of_normal_water'] = "6 or more but less than 10"
         if imgs[77] == u'images/SqurewithTik1.jpg':
             item['availability_of_normal_water'] = "10 or more"
 
@@ -169,11 +169,11 @@ class BlogSpider(Spider):
         if imgs[78] == u'images/SqurewithTik1.jpg':
             item['food_security'] = "Less than one squire meal per day for major part of the year."
         if imgs[79] == u'images/SqurewithTik1.jpg':
-            item['food_security'] = "Normally one squire meal per day but less than one squire meal occasionally. "
+            item['food_security'] = "Normally one squire meal per day but less than one squire meal occasionally."
         if imgs[80] == u'images/SqurewithTik1.jpg':
-            item['food_security'] = "One squire meal per day through out the year. "
+            item['food_security'] = "One squire meal per day through out the year."
         if imgs[81] == u'images/SqurewithTik1.jpg':
-            item['food_security'] = "Two squire meal per day with occasionally shortage "
+            item['food_security'] = "Two squire meal per day with occasionally shortage"
         if imgs[82] == u'images/SqurewithTik1.jpg':
             item['food_security'] = "Enough food through out the year"
 
@@ -184,9 +184,9 @@ class BlogSpider(Spider):
         if imgs[84] == u'images/SqurewithTik1.jpg':
             item['sanitation'] = "Group Latrine with irregular water supply."
         if imgs[85] == u'images/SqurewithTik1.jpg':
-            item['sanitation'] = "Group Latrine with regular water supply. "
+            item['sanitation'] = "Group Latrine with regular water supply."
         if imgs[86] == u'images/SqurewithTik1.jpg':
-            item['sanitation'] = "Clean group latrine with irregular water supply and regular sweeper. "
+            item['sanitation'] = "Clean group latrine with irregular water supply and regular sweeper."
         if imgs[87] == u'images/SqurewithTik1.jpg':
             item['sanitation'] = "Private latrine"
 
@@ -197,11 +197,11 @@ class BlogSpider(Spider):
         if imgs[89] == u'images/SqurewithTik1.jpg':
             item['ownership_of_consumer_durables'] = "Any one"
         if imgs[90] == u'images/SqurewithTik1.jpg':
-            item['ownership_of_consumer_durables'] = "Two items only "
+            item['ownership_of_consumer_durables'] = "Two items only"
         if imgs[91] == u'images/SqurewithTik1.jpg':
             item['ownership_of_consumer_durables'] = "Any three or All items"
         if imgs[92] == u'images/SqurewithTik1.jpg':
-            item['ownership_of_consumer_durables'] = "All items and / or ownership of any of the following "
+            item['ownership_of_consumer_durables'] = "All items and / or ownership of any of the following"
 
         # Question 7
         item['status_of_the_highest_literate_adult'] = "ERROR"
@@ -210,7 +210,7 @@ class BlogSpider(Spider):
         if imgs[94] == u'images/SqurewithTik1.jpg':
             item['status_of_the_highest_literate_adult'] = "Up to primary (Class V)"
         if imgs[95] == u'images/SqurewithTik1.jpg':
-            item['status_of_the_highest_literate_adult'] = "Completed Secondary (Passed class X) "
+            item['status_of_the_highest_literate_adult'] = "Completed Secondary (Passed class X)"
         if imgs[96] == u'images/SqurewithTik1.jpg':
             item['status_of_the_highest_literate_adult'] = "Graduate / Professional diploma"
         if imgs[97] == u'images/SqurewithTik1.jpg':
@@ -221,9 +221,9 @@ class BlogSpider(Spider):
         if imgs[98] == u'images/SqurewithTik1.jpg':
             item['labour_force'] = "Bonded labour"
         if imgs[99] == u'images/SqurewithTik1.jpg':
-            item['labour_force'] = "Female and Child Labour "
+            item['labour_force'] = "Female and Child Labour"
         if imgs[100] == u'images/SqurewithTik1.jpg':
-            item['labour_force'] = "Only adult females and no child labour "
+            item['labour_force'] = "Only adult females and no child labour"
         if imgs[101] == u'images/SqurewithTik1.jpg':
             item['labour_force'] = "Adult males only"
         if imgs[102] == u'images/SqurewithTik1.jpg':
@@ -232,7 +232,7 @@ class BlogSpider(Spider):
         # Question 9
         item['means_of_livelihood'] = "ERROR"
         if imgs[103] == u'images/SqurewithTik1.jpg':
-            item['means_of_livelihood'] = "Causal labour "
+            item['means_of_livelihood'] = "Causal labour"
         if imgs[104] == u'images/SqurewithTik1.jpg':
             item['means_of_livelihood'] = "Subsistence Cultivation"
         if imgs[105] == u'images/SqurewithTik1.jpg':
@@ -280,7 +280,7 @@ class BlogSpider(Spider):
         # Question 13
         item['assistance'] = "ERROR"
         if imgs[121] == u'images/SqurewithTik1.jpg':
-            item['assistance'] = "Wage employment/TPDS(Targeted Public Distribution System) "
+            item['assistance'] = "Wage employment/TPDS(Targeted Public Distribution System)"
         if imgs[122] == u'images/SqurewithTik1.jpg':
             item['assistance'] = "Self employment"
         if imgs[123] == u'images/SqurewithTik1.jpg':
@@ -288,7 +288,6 @@ class BlogSpider(Spider):
         if imgs[124] == u'images/SqurewithTik1.jpg':
             item['assistance'] = "Housing"
         if imgs[125] == u'images/SqurewithTik1.jpg':
-            item['assistance'] = "Loan/Subsidy more than Rs. 1 Lakh or no assistance needed "
-
+            item['assistance'] = "Loan/Subsidy more than Rs. 1 Lakh or no assistance needed"
 
         yield item
