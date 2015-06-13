@@ -1,4 +1,5 @@
 from scrapy import Spider, Item, Field, Request
+import os
 
 class Family(Item):
     family_id = Field()
@@ -31,10 +32,12 @@ class Family(Item):
 class BlogSpider(Spider):
     name = 'dt2009'
     cookies={"ASPSESSIONIDCCSDDDRS": "IJJAOOPBEOBBHPBMNBLPCNPP"}
+    start = int(os.environ['START'])
+    step = int(os.environ['STEP'])
     
     def start_requests(self):
         urls= []
-        for i in range(0,1000):
+        for i in range(self.start,self.start + self.step):
             urls.append(Request("http://www.odishapanchayat.gov.in/dt2009/BPLSurveyDetails.asp?FamilyId=" + str(i) + "&page=Vil", cookies=self.cookies, callback=self.parse))
         return urls
 
