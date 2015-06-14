@@ -1,0 +1,14 @@
+#!/bin/bash
+# get all of the districts
+	d=2421
+	b=2421004
+	g=2421004001
+#for d in $(curl -H "Cookie: ASPSESSIONIDCCSDDDRS=IJJAOOPBEOBBHPBMNBLPCNPP" "http://www.odishapanchayat.gov.in/dt2009/searchByLocation.asp?Submit=&SelDist=&selBlock=&selGP=&selVillage=&gate=1&intsheet=1" -s | awk '/name="selDist/,/\/select/' | grep 'option value="[^"]' | sed 's/^[^"]*"\(.*\)"[^"]*$/\1/;'); do
+#	for b in $(curl -H "Cookie: ASPSESSIONIDCCSDDDRS=IJJAOOPBEOBBHPBMNBLPCNPP" "http://www.odishapanchayat.gov.in/dt2009/searchByLocation.asp?Submit=&SelDist=$d&selBlock=&selGP=&selVillage=&gate=1&intsheet=1" -s | awk '/name="selBlock/,/\/select/' | grep 'option value="[^"]' | sed 's/^[^"]*"\(.*\)"[^"]*$/\1/;'); do
+#		for g in $(curl -H "Cookie: ASPSESSIONIDCCSDDDRS=IJJAOOPBEOBBHPBMNBLPCNPP" "http://www.odishapanchayat.gov.in/dt2009/searchByLocation.asp?Submit=&SelDist=$d&selBlock=$b&selGP=&selVillage=&gate=1&intsheet=1" -s | awk '/name="selGP/,/\/select/' | grep 'option value="[^"]' | sed 's/^[^"]*"\(.*\)"[^"]*$/\1/;'); do
+			for v in $(curl -H "Cookie: ASPSESSIONIDCCSDDDRS=IJJAOOPBEOBBHPBMNBLPCNPP" "http://www.odishapanchayat.gov.in/dt2009/searchByLocation.asp?Submit=&SelDist=$d&selBlock=$b&selGP=$g&selVillage=&gate=1&intsheet=1" -s | awk '/name="selVillage/,/\/select/' | grep 'option value="[^"]' | sed 's/^[^"]*"\(.*\)"[^"]*$/\1/;'); do
+				docker run -it --rm -w /docker -v "$PWD:/docker" -e DISTRICT=$d -e BLOCK=$b -e GP=$g -e VILLAGE=$v scrapy runspider dt2009.py -o "$d-$b-$g-$v.csv"
+			done
+#		done
+#	done
+#done

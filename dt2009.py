@@ -1,4 +1,6 @@
-from scrapy import Spider, Item, Field, Request
+from scrapy import Item, Field, Request
+from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.contrib.linkextractors import LinkExtractor
 import os
 
 class Family(Item):
@@ -29,19 +31,24 @@ class Family(Item):
     assistance = Field()
     children_status = Field()
 
-class BlogSpider(Spider):
+class BlogSpider(CrawlSpider):
     name = 'dt2009'
     cookies={"ASPSESSIONIDCCSDDDRS": "IJJAOOPBEOBBHPBMNBLPCNPP"}
-    start = int(os.environ['START'])
-    step = int(os.environ['STEP'])
+
+    rules = (
+        Rule(LinkExtractor(allow=['BPLSurveyDetails.asp']), callback='parse_family', follow=True),
+        Rule(LinkExtractor(allow=['SearchVillageWise.asp']), follow=True),
+    )
+
     
     def start_requests(self):
-        urls= []
-        for i in range(self.start,self.start + self.step):
-            urls.append(Request("http://www.odishapanchayat.gov.in/dt2009/BPLSurveyDetails.asp?FamilyId=" + str(i) + "&page=Vil", cookies=self.cookies, callback=self.parse))
-        return urls
+        district=os.environ['DISTRICT']
+        block=os.environ['BLOCK']
+        gp=os.environ['GP']
+        village=os.environ['VILLAGE']
+        return [ Request("http://www.odishapanchayat.gov.in/dt2009/SearchVillageWise.asp?Submit=Submit&SelDist=" + district + "&SelBlock=" + block + "&SelGP=" + gp + "&SelVillage=" + village + "&gate=1&intsheet=1", cookies=self.cookies) ]
 
-    def parse(self, response):
+    def parse_family(self, response):
         item = Family()
 
         base = "/html/body/form/div[6]/table/tr/td/table/tr[2]/td[2]/table"
