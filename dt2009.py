@@ -33,20 +33,16 @@ class Family(Item):
 
 class BlogSpider(CrawlSpider):
     name = 'dt2009'
-    cookies={"ASPSESSIONIDCCSDDDRS": "IJJAOOPBEOBBHPBMNBLPCNPP"}
+    district=os.environ['DISTRICT']
+    block=os.environ['BLOCK']
+    gp=os.environ['GP']
+    village=os.environ['VILLAGE']
+    start_urls = ["http://www.odishapanchayat.gov.in/dt2009/SearchVillageWise.asp?Submit=Submit&SelDist=" + district + "&SelBlock=" + block + "&SelGP=" + gp + "&SelVillage=" + village + "&gate=1&intsheet=1"]
 
     rules = (
         Rule(LinkExtractor(allow=['BPLSurveyDetails.asp']), callback='parse_family', follow=True),
         Rule(LinkExtractor(allow=['SearchVillageWise.asp']), follow=True),
     )
-
-    
-    def start_requests(self):
-        district=os.environ['DISTRICT']
-        block=os.environ['BLOCK']
-        gp=os.environ['GP']
-        village=os.environ['VILLAGE']
-        return [ Request("http://www.odishapanchayat.gov.in/dt2009/SearchVillageWise.asp?Submit=Submit&SelDist=" + district + "&SelBlock=" + block + "&SelGP=" + gp + "&SelVillage=" + village + "&gate=1&intsheet=1", cookies=self.cookies) ]
 
     def parse_family(self, response):
         item = Family()
